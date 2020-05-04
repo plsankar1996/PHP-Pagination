@@ -8,7 +8,7 @@
  * @author     plsankar1996
  * @copyright  2020 plsankar1996
  * @license    Apache License 2.0
- * @version    1.0
+ * @version    1.1
  * @link       https://github.com/plsankar1996/PHP-Pagination
  * 
  */
@@ -39,7 +39,7 @@ $page = $_GET['page'] ?? 1;
 
                 $total = 9;
 
-                $Pagination = new Pagination($total, $page, 3);
+                $Pagination = new Pagination($total, $page, 2);
                 $Pagination->create();
 
                 ?>

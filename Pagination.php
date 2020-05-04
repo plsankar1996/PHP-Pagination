@@ -8,7 +8,7 @@
  * @author     plsankar1996
  * @copyright  2020 plsankar1996
  * @license    Apache License 2.0
- * @version    1.0
+ * @version    1.1
  * @link       https://github.com/plsankar1996/PHP-Pagination
  * 
  */
@@ -42,7 +42,9 @@ class Pagination
             $end = $this->total;
         }
 
-        $this->createPageItem(1, false, "First");
+        if ($this->current > 1) {
+            $this->createPageItem(1, false, "First");
+        }
 
         for ($x = $start; $x <= $end; $x++) {
             if ($x < 1) {
@@ -54,7 +56,9 @@ class Pagination
             }
         }
 
-        $this->createPageItem($this->total, false, "Last");
+        if ($this->current < $this->total) {
+            $this->createPageItem($this->total, false, "Last");
+        }
     }
 
     public function createPageItem($x, $active, $name)
