@@ -8,7 +8,7 @@
  * @author     plsankar1996
  * @copyright  2020 plsankar1996
  * @license    Apache License 2.0
- * @version    1.1
+ * @version    1.2
  * @link       https://github.com/plsankar1996/PHP-Pagination
  * 
  */
@@ -19,12 +19,14 @@ class Pagination
     public $total;
     public $current;
     public $balance;
+    public $urlbase;
 
-    public function __construct($total, $current, $balance)
+    public function __construct($current, $total, $urlbase, $balance)
     {
         $this->total = $total;
         $this->current = $current;
         $this->balance = $balance;
+        $this->urlbase = $urlbase;
     }
 
     public function create()
@@ -67,7 +69,7 @@ class Pagination
         if ($active) {
             echo " active\"><a class=\"page-link\">";
         } else {
-            echo "\"><a class=\"page-link\" href=\"?page=$x\">";
+            echo "\"><a class=\"page-link\" href=\"" . $this->urlbase . "page=$x\">";
         }
         echo "$name</a></li>";
     }
